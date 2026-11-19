@@ -294,12 +294,5 @@ RepoMind is designed with local processing and safe repository handling in mind.
 
 ---
 
-## 📄 License
-
-This project is currently awaiting a license.
-
-You can add an open-source license such as the [MIT License](https://opensource.org/license/mit) if you want to allow others to use, modify, and distribute the project under its terms.
-
----
 
 **RepoMind – Understand your codebase through conversation.** 🧠
