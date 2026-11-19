@@ -76,13 +76,13 @@ flowchart TD
 
 ## 📥 Supported Inputs
 
-| Input Type | Example |
-|---|---|
-| Local Folder | `./my-project` |
-| Individual File | `./app.py` |
-| ZIP Archive | `C:/Users/you/app.zip` |
-| Uploaded File | Upload through the Streamlit interface |
-| Public GitHub Repository | `https://github.com/owner/repo` |
+| Input Type                | Example                                       |
+| ------------------------- | --------------------------------------------- |
+| Local Folder              | `./my-project`                                |
+| Individual File           | `./app.py`                                    |
+| ZIP Archive               | `C:/Users/you/app.zip`                        |
+| Uploaded File             | Upload through the Streamlit interface        |
+| Public GitHub Repository  | `https://github.com/owner/repo`               |
 | GitHub Branch / Subfolder | `https://github.com/owner/repo/tree/main/src` |
 
 ### Supported File Types
@@ -99,18 +99,18 @@ Python, C#, JavaScript, TypeScript, Java, Go, Rust, C/C++, HTML, CSS/SCSS, JSON,
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology | Purpose |
-|---|---|---|
-| Frontend / UI | Streamlit | Interactive chat interface |
-| Code Parsing | Tree-sitter | AST-aware code parsing and chunking |
-| Fallback Chunking | LangChain Text Splitters | Text-based chunking fallback |
-| Embeddings | `BAAI/bge-small-en-v1.5` | Converts code chunks into vector representations |
-| Vector Database | ChromaDB | Stores embeddings for semantic retrieval |
-| Keyword Retrieval | BM25 | Finds exact keywords and identifiers |
-| Result Fusion | Reciprocal Rank Fusion (RRF) | Combines keyword and semantic search results |
-| Reranking | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Improves retrieval relevance |
-| LLM | Ollama (`llama3.2:3b`) | Generates context-grounded answers locally |
-| Version Control | Git | Supports cloning public GitHub repositories |
+| Layer             | Technology                             | Purpose                                          |
+| ----------------- | -------------------------------------- | ------------------------------------------------ |
+| Frontend / UI     | Streamlit                              | Interactive chat interface                       |
+| Code Parsing      | Tree-sitter                            | AST-aware code parsing and chunking              |
+| Fallback Chunking | LangChain Text Splitters               | Text-based chunking fallback                     |
+| Embeddings        | `BAAI/bge-small-en-v1.5`               | Converts code chunks into vector representations |
+| Vector Database   | ChromaDB                               | Stores embeddings for semantic retrieval         |
+| Keyword Retrieval | BM25                                   | Finds exact keywords and identifiers             |
+| Result Fusion     | Reciprocal Rank Fusion (RRF)           | Combines keyword and semantic search results     |
+| Reranking         | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Improves retrieval relevance                     |
+| LLM               | Ollama (`llama3.2:3b`)                 | Generates context-grounded answers locally       |
+| Version Control   | Git                                    | Supports cloning public GitHub repositories      |
 
 ### Important Retrieval Techniques
 
@@ -204,22 +204,23 @@ Add your codebase, index it, and start asking questions!
 
 ### Sidebar Settings
 
-| Setting | Description |
-|---|---|
-| Model | Select any locally installed Ollama model |
-| Retrieval Mode | Choose Hybrid + Reranker, Hybrid, Vector Only, or BM25 Only |
-| Top-K | Controls the number of code chunks passed to the LLM (3–10) |
+| Setting           | Description                                                          |
+| ----------------- | -------------------------------------------------------------------- |
+| Model             | Select any locally installed Ollama model                            |
+| Retrieval Mode    | Choose Hybrid + Reranker, Hybrid, Vector Only, or BM25 Only          |
+| Top-K             | Controls the number of code chunks passed to the LLM (3–10)          |
 | Relevance Cut-off | Sets the minimum reranker score required to accept retrieved context |
 
 ### Environment Variables
 
-| Variable | Default Value | Purpose |
-|---|---|---|
-| `OLLAMA_HOST` | `http://localhost:11434` | Ollama server address |
-| `REPOMIND_MIN_RERANK` | `-6.0` | Default relevance threshold |
-| `REPOMIND_REPOS_DIR` | `./.repomind_repos` | Directory for cloned repositories and extracted ZIP archives |
+| Variable              | Default Value            | Purpose                                                      |
+| --------------------- | ------------------------ | ------------------------------------------------------------ |
+| `OLLAMA_HOST`         | `http://localhost:11434` | Ollama server address                                        |
+| `REPOMIND_MIN_RERANK` | `-6.0`                   | Default relevance threshold                                  |
+| `REPOMIND_REPOS_DIR`  | `./.repomind_repos`      | Directory for cloned repositories and extracted ZIP archives |
 
 **Configuration Tip:**
+
 - If RepoMind frequently returns "Information not found", try lowering the relevance cut-off.
 - If answers contain irrelevant code, try raising the relevance cut-off.
 
@@ -281,18 +282,5 @@ RepoMind is designed with local processing and safe repository handling in mind.
 - **Limited Repository Scope:** Currently supports public GitHub repositories only. Commit history, issues, and pull requests are not indexed.
 
 ---
-
-## 🛣️ Future Enhancements
-
-- Add parent-class context to code chunks (e.g., `Class X > Method Y`).
-- Implement incremental indexing to embed only modified files.
-- Integrate code-specific embedding and reranking models.
-- Introduce call-graph and dependency-aware retrieval for better multi-file understanding.
-- Build an evaluation framework to automatically tune relevance thresholds.
-- Add private GitHub repository support.
-- Implement automatic citation verification against original source files.
-
----
-
 
 **RepoMind – Understand your codebase through conversation.** 🧠
