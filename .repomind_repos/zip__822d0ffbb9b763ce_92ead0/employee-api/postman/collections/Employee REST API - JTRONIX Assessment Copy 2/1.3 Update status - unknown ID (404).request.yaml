@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/employees/999/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "status": "Active"
+    }
+order: 8000

@@ -1,0 +1,15 @@
+# Use this workspace to collaborate
+workspace:
+  id: 857e87ae-6f4c-49f0-87ed-8130340ce59e
+
+localResources:
+  collections:
+    - ../employee-api/postman_collection.json
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/Employee REST API - JTRONIX Assessment Copy: 44e26c11-e832-4397-a944-d52231c1295e
+    ../postman/collections/Employee REST API - JTRONIX Assessment Copy 2: d591d5c9-5790-46a4-a7b7-b828258f399e
+    ../postman/collections/Employee REST API - JTRONIX Assessment: 0653e088-4f96-432d-babb-bed363318bd4

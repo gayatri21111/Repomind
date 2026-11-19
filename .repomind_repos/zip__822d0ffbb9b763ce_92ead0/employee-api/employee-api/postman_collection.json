@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Employee REST API - JTRONIX Assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:8000" }
+  ],
+  "item": [
+    {
+      "name": "1.1 Get all employees",
+      "request": { "method": "GET", "url": "{{baseUrl}}/employees" }
+    },
+    {
+      "name": "1.1 Get employee by ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/employees/1" }
+    },
+    {
+      "name": "1.1 Get employee - not found (404)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/employees/999" }
+    },
+    {
+      "name": "1.2 Create employee",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Neha Singh\",\n  \"department\": \"Finance\"\n}" },
+        "url": "{{baseUrl}}/employees"
+      }
+    },
+    {
+      "name": "1.2 Create employee - empty name (422)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"\",\n  \"department\": \"HR\"\n}" },
+        "url": "{{baseUrl}}/employees"
+      }
+    },
+    {
+      "name": "1.3 Update status to Inactive",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"Inactive\"\n}" },
+        "url": "{{baseUrl}}/employees/1/status"
+      }
+    },
+    {
+      "name": "1.3 Update status - invalid value (422)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"Retired\"\n}" },
+        "url": "{{baseUrl}}/employees/1/status"
+      }
+    },
+    {
+      "name": "1.3 Update status - unknown ID (404)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"Active\"\n}" },
+        "url": "{{baseUrl}}/employees/999/status"
+      }
+    },
+    {
+      "name": "1.3 Filter by department",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/employees?department=Engineering",
+          "host": ["{{baseUrl}}"],
+          "path": ["employees"],
+          "query": [{ "key": "department", "value": "Engineering" }]
+        }
+      }
+    }
+  ]
+}

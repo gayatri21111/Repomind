@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseUrl}}/employees?department=Engineering"
+method: GET
+queryParams:
+  department: Engineering
+order: 9000
